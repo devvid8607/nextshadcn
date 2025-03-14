@@ -13,6 +13,17 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from "@/components/ui/sidebar";
+import {
+  ResizableHandle,
+  ResizablePanel,
+  ResizablePanelGroup,
+} from "@/components/ui/resizable";
+import {
+  NavigationMenu, 
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList, 
+} from "@/components/ui/navigation-menu";
 
 export default function Page() {
   return (
@@ -37,15 +48,59 @@ export default function Page() {
               </BreadcrumbList>
             </Breadcrumb>
           </div>
-        </header>
-        <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
-          <div className="grid auto-rows-min gap-4 md:grid-cols-3">
-            <div className="aspect-video rounded-xl bg-muted/50" />
-            <div className="aspect-video rounded-xl bg-muted/50" />
-            <div className="aspect-video rounded-xl bg-muted/50" />
+          {/* Navigation Menu at the right end */}
+          <div className="ml-auto pr-4">
+            <NavigationMenu>
+              <NavigationMenuList className="flex gap-4">
+                <NavigationMenuItem>
+                  <NavigationMenuLink href="#">Home</NavigationMenuLink>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
+                  <NavigationMenuLink href="#">Profile</NavigationMenuLink>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
+                  <NavigationMenuLink href="#">Settings</NavigationMenuLink>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+            </NavigationMenu>
           </div>
-          <div className="min-h-[100vh] flex-1 rounded-xl bg-muted/50 md:min-h-min" />
-        </div>
+        </header>
+        <ResizablePanelGroup direction="horizontal" className="flex-1">
+          {/* CENTER CONTENT */}
+          <ResizablePanel defaultSize={60} minSize={20}>
+            <div className="h-full w-full p-4 bg-muted/50">
+              <h2 className="mb-2 text-xl font-semibold">Center Content</h2>
+              <p>
+                Here is your main content area. Resizing the right panel will
+                shrink or grow this area.
+              </p>
+            </div>
+          </ResizablePanel>
+
+          <ResizableHandle />
+
+          {/* RIGHT PANEL */}
+          <ResizablePanel defaultSize={40} minSize={20}>
+            <div className="h-full w-full border-l bg-muted/50">
+              {/* Nested vertical ResizablePanelGroup for top and bottom panels */}
+              <ResizablePanelGroup direction="vertical" className="h-full">
+                {/* Top Panel */}
+                <ResizablePanel defaultSize={50} minSize={20}>
+                  <div className="flex h-full items-center justify-center p-4">
+                    <span className="font-semibold">Top Right Panel</span>
+                  </div>
+                </ResizablePanel>
+                <ResizableHandle />
+                {/* Bottom Panel */}
+                <ResizablePanel defaultSize={50} minSize={20}>
+                  <div className="flex h-full items-center justify-center p-4">
+                    <span className="font-semibold">Bottom Right Panel</span>
+                  </div>
+                </ResizablePanel>
+              </ResizablePanelGroup>
+            </div>
+          </ResizablePanel>
+        </ResizablePanelGroup>
       </SidebarInset>
     </SidebarProvider>
   );

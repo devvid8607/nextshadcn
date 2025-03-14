@@ -19,11 +19,12 @@ import {
   ResizablePanelGroup,
 } from "@/components/ui/resizable";
 import {
-  NavigationMenu, 
+  NavigationMenu,
   NavigationMenuItem,
   NavigationMenuLink,
-  NavigationMenuList, 
+  NavigationMenuList,
 } from "@/components/ui/navigation-menu";
+import { ModeToggle } from "@/components/theme-toggles";
 
 export default function Page() {
   return (
@@ -53,7 +54,9 @@ export default function Page() {
             <NavigationMenu>
               <NavigationMenuList className="flex gap-4">
                 <NavigationMenuItem>
-                  <NavigationMenuLink href="#">Home</NavigationMenuLink>
+                  <NavigationMenuLink href="#">
+                    <ModeToggle />
+                  </NavigationMenuLink>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
                   <NavigationMenuLink href="#">Profile</NavigationMenuLink>

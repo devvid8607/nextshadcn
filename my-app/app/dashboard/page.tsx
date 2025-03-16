@@ -1,4 +1,7 @@
 import { AppSidebar } from "@/components/app-sidebar";
+import { QuickSearch } from "@/components/quick-search";
+import { Team1 } from "@/components/theme-switch-test-component";
+import { ModeToggle } from "@/components/theme-toggles";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -7,25 +10,23 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import { Separator } from "@/components/ui/separator";
-import {
-  SidebarInset,
-  SidebarProvider,
-  SidebarTrigger,
-} from "@/components/ui/sidebar";
-import {
-  ResizableHandle,
-  ResizablePanel,
-  ResizablePanelGroup,
-} from "@/components/ui/resizable";
 import {
   NavigationMenu,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
 } from "@/components/ui/navigation-menu";
-import { ModeToggle } from "@/components/theme-toggles";
-import { QuickSearch } from "@/components/quick-search";
+import {
+  ResizableHandle,
+  ResizablePanel,
+  ResizablePanelGroup,
+} from "@/components/ui/resizable";
+import { Separator } from "@/components/ui/separator";
+import {
+  SidebarInset,
+  SidebarProvider,
+  SidebarTrigger,
+} from "@/components/ui/sidebar";
 
 export default function Page() {
   return (
@@ -84,6 +85,7 @@ export default function Page() {
                 Here is your main content area. Resizing the right panel will
                 shrink or grow this area.
               </p>
+              <Team1 />
             </div>
           </ResizablePanel>
 

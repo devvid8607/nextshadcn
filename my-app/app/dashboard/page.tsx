@@ -25,6 +25,7 @@ import {
   NavigationMenuList,
 } from "@/components/ui/navigation-menu";
 import { ModeToggle } from "@/components/theme-toggles";
+import { QuickSearch } from "@/components/quick-search";
 
 export default function Page() {
   return (
@@ -49,6 +50,12 @@ export default function Page() {
               </BreadcrumbList>
             </Breadcrumb>
           </div>
+          {/* Center: Command component as a search bar */}
+
+          <div className="flex-1 px-4 flex justify-center">
+            <QuickSearch />
+          </div>
+
           {/* Navigation Menu at the right end */}
           <div className="ml-auto pr-4">
             <NavigationMenu>

@@ -1,6 +1,8 @@
 import { AppSidebar } from "@/components/app-sidebar";
+import Contact02Page from "@/components/contact-02/contact-02";
 import { QuickSearch } from "@/components/quick-search";
 import { Team1 } from "@/components/theme-switch-test-component";
+import { Slider } from "@/components/theme-switch-test-component2";
 import { ModeToggle } from "@/components/theme-toggles";
 import {
   Breadcrumb,
@@ -99,14 +101,14 @@ export default function Page() {
                 {/* Top Panel */}
                 <ResizablePanel defaultSize={50} minSize={20}>
                   <div className="flex h-full items-center justify-center p-4">
-                    <span className="font-semibold">Top Right Panel</span>
+                    <Slider />
                   </div>
                 </ResizablePanel>
                 <ResizableHandle />
                 {/* Bottom Panel */}
                 <ResizablePanel defaultSize={50} minSize={20}>
                   <div className="flex h-full items-center justify-center p-4">
-                    <span className="font-semibold">Bottom Right Panel</span>
+                    <Contact02Page />
                   </div>
                 </ResizablePanel>
               </ResizablePanelGroup>

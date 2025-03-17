@@ -1,6 +1,7 @@
 import { AppSidebar } from "@/components/app-sidebar";
 import Contact02Page from "@/components/contact-02/contact-02";
 import { QuickSearch } from "@/components/quick-search";
+import RegisterPreview from "@/components/signup-form";
 import { Team1 } from "@/components/theme-switch-test-component";
 import { Slider } from "@/components/theme-switch-test-component2";
 import { ModeToggle } from "@/components/theme-toggles";
@@ -87,7 +88,7 @@ export default function Page() {
                 Here is your main content area. Resizing the right panel will
                 shrink or grow this area.
               </p>
-              <Team1 />
+              <RegisterPreview />
             </div>
           </ResizablePanel>
 

@@ -12,6 +12,7 @@ import {
 } from "@xyflow/react";
 
 import "@xyflow/react/dist/style.css";
+import { ModeToggle } from "@/components/theme-toggles";
 
 const initialNodes = [
   { id: "1", position: { x: 0, y: 0 }, data: { label: "1" } },
@@ -29,6 +30,7 @@ const page = () => {
 
   return (
     <div style={{ width: "100vw", height: "100vh" }}>
+      <ModeToggle />
       <ReactFlow
         nodes={nodes}
         edges={edges}

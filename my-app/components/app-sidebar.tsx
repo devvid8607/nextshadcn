@@ -66,7 +66,7 @@ const data = {
         },
         {
           title: "Starred",
-          url: "#",
+          url: "/canvas",
         },
         {
           title: "Settings",

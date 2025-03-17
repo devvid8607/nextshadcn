@@ -1,3 +1,4 @@
+"use client";
 import { AppSidebar } from "@/components/app-sidebar";
 import Contact02Page from "@/components/contact-02/contact-02";
 import { QuickSearch } from "@/components/quick-search";
@@ -13,6 +14,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import { Button } from "@/components/ui/button";
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -30,8 +32,25 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from "@/components/ui/sidebar";
+import { useFetchOrganisationTemplates } from "@/sharedLib/useOrganisationTemplate";
+import { useEffect } from "react";
 
 export default function Page() {
+  const { refetch: refetchTemplates } = useFetchOrganisationTemplates(false);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const { data: templates } = await refetchTemplates();
+        console.log("templates data", templates);
+      } catch (error) {
+        console.error("Error fetching templates:", error);
+      }
+    };
+
+    fetchData(); // Call the async function
+  }, [refetchTemplates]);
+
   return (
     <SidebarProvider>
       <AppSidebar />
@@ -88,6 +107,7 @@ export default function Page() {
                 Here is your main content area. Resizing the right panel will
                 shrink or grow this area.
               </p>
+              <Button onClick={() => refetchTemplates()}></Button>
               <RegisterPreview />
             </div>
           </ResizablePanel>
